@@ -1,0 +1,1 @@
+This is a game of rock paper scissors versus a computer. The computer will randomly choose between rock, paper, and scissors. The game is played through the console.
