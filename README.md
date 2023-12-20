@@ -1,1 +1,1 @@
-This is a game of rock paper scissors versus a computer. The computer will randomly choose between rock, paper, and scissors. The game is played through the console.
+This is a game of rock paper scissors versus a computer. The computer will randomly choose between rock, paper, and scissors. Three buttons will be visible on the screen for the player to make a choice, and the result will be displayed on the screen.
