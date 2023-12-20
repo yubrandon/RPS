@@ -1,0 +1,25 @@
+
+
+.header {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+}
+
+.buttons {
+    display:flex;
+    justify-content:center;
+    gap:50px;
+}
+
+#btn {
+    flex:1;
+    max-width:100px;
+}
+
+.result {
+    display:flex;
+    justify-content:center;
+}

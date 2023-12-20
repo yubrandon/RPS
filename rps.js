@@ -63,16 +63,16 @@ function printPlayerSelection(string) {
 }
 
 function compareSelection(player,computer) {
-    if(player == computer) return "The match is a draw.";
+    if(player == computer) return "Computer has chosen: " + intToSelection(computer) + "\nThe match is a draw.";
     else if((player == 0 && computer == 2) || (player == 1 && computer == 0) || (player == 2 && computer == 1)) 
     {
         computerScore++;
-        return "The computer has won.";
+        return "Computer has chosen: " + intToSelection(computer) + "\nThe computer has won.";
     }
     else if((player == 2 && computer == 0) || (player == 0 && computer == 1) || (player == 1 && computer == 2))
     {
         playerScore++;
-        return "Congratulations! You have won.";
+        return "Computer has chosen: " + intToSelection(computer) + "\nCongratulations! You have won.";
     }
     else return "Invalid selection made.";
 }
@@ -108,4 +108,48 @@ function playAgain() {
         lower = bool.toLowerCase();
     }
 }
-game();
+
+function updateScore() {
+    const score = document.querySelector('.score');
+    score.textContent = "Score: " + playerScore + " - " + computerScore;
+}
+
+updateScore();
+
+function displayRes(str) {
+    const div = document.querySelector('.result');
+
+    if(div.hasChildNodes()){
+        let del = document.querySelector('.print');
+        //console.log(del);
+        var temp = div.removeChild(del);
+    }
+    let result = document.createElement('p');
+    result.classList.add("print");
+    result.innerText = str;
+    div.appendChild(result);
+    console.log(playerScore);
+    
+    updateScore();
+}
+
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', function(e) {
+    //console.log(e);
+    //console.log(compareSelection(0,getComputerSelection()));
+    displayRes(compareSelection(0,getComputerSelection()));
+});
+
+const paper = document.querySelector('.paper');
+paper.addEventListener('click', function(e) {
+    //console.log(e);
+    //console.log(compareSelection(1,getComputerSelection()));
+    displayRes(compareSelection(1,getComputerSelection()));
+});
+
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', function(e) {
+    //console.log(e);
+    //console.log(compareSelection(2,getComputerSelection()));
+    displayRes(compareSelection(2,getComputerSelection()));
+});
