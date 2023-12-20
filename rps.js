@@ -13,7 +13,7 @@ function getRandomInt(max) {
 */
 function getComputerSelection(){
     let x = getRandomInt(3);
-    console.log("Computer has chosen: " + intToSelection(x));
+    //console.log("Computer has chosen: " + intToSelection(x));
     return x;
 }
 
@@ -59,7 +59,7 @@ function printPlayerSelection(string) {
     var first = string.charAt(0);
     first = first.toUpperCase();
 
-    console.log("You have chosen: " + first + string.slice(1));
+    //console.log("You have chosen: " + first + string.slice(1));
 }
 
 function compareSelection(player,computer) {
@@ -116,22 +116,7 @@ function updateScore() {
 
 updateScore();
 
-function displayRes(str) {
-    const div = document.querySelector('.result');
 
-    if(div.hasChildNodes()){
-        let del = document.querySelector('.print');
-        //console.log(del);
-        var temp = div.removeChild(del);
-    }
-    let result = document.createElement('p');
-    result.classList.add("print");
-    result.innerText = str;
-    div.appendChild(result);
-    console.log(playerScore);
-    
-    updateScore();
-}
 
 const rock = document.querySelector('.rock');
 rock.addEventListener('click', function(e) {
@@ -153,3 +138,31 @@ scissors.addEventListener('click', function(e) {
     //console.log(compareSelection(2,getComputerSelection()));
     displayRes(compareSelection(2,getComputerSelection()));
 });
+
+function displayRes(str) {
+    const div = document.querySelector('.result');
+
+    if(div.hasChildNodes()){
+        let del = document.querySelector('.print');
+        //console.log(del);
+        var temp = div.removeChild(del);
+    }
+    let result = document.createElement('p');
+    result.classList.add("print");
+    result.innerText = str;
+    div.appendChild(result);
+    console.log(playerScore);
+    
+    updateScore();
+
+    if(playerScore == 5) declareWinner ("You have won! Refresh the page to start a new game, or continue playing for fun.");
+    else if(computerScore == 5) declareWinner("The computer has won! Refresh the page to start a new game, or continue playing for fun.");
+
+}
+
+function declareWinner(str) {
+    const parent = document.querySelector('.winner');
+    let temp = document.createElement('p');
+    temp.innerText = str;
+    parent.appendChild(temp);
+}
