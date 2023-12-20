@@ -19,7 +19,8 @@
     max-width:100px;
 }
 
-.result {
+.result, .winner {
     display:flex;
     justify-content:center;
+    text-align:center;
 }
