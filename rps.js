@@ -63,12 +63,15 @@ function printPlayerSelection(string) {
 }
 
 function compareSelection(player,computer) {
+    //Draw if player input matches computer choice
     if(player == computer) return "Computer has chosen: " + intToSelection(computer) + "\nThe match is a draw.";
+    //Check for winning conditions for computer
     else if((player == 0 && computer == 2) || (player == 1 && computer == 0) || (player == 2 && computer == 1)) 
     {
         computerScore++;
         return "Computer has chosen: " + intToSelection(computer) + "\nThe computer has won.";
     }
+    //Check for winning conditions for player
     else if((player == 2 && computer == 0) || (player == 0 && computer == 1) || (player == 1 && computer == 2))
     {
         playerScore++;
@@ -117,28 +120,26 @@ function updateScore() {
 updateScore();
 
 
-
+//Add event listeners for each option that calls for comparison
 const rock = document.querySelector('.rock');
 rock.addEventListener('click', function(e) {
     //console.log(e);
-    //console.log(compareSelection(0,getComputerSelection()));
     displayRes(compareSelection(0,getComputerSelection()));
 });
 
 const paper = document.querySelector('.paper');
 paper.addEventListener('click', function(e) {
     //console.log(e);
-    //console.log(compareSelection(1,getComputerSelection()));
     displayRes(compareSelection(1,getComputerSelection()));
 });
 
 const scissors = document.querySelector('.scissors');
 scissors.addEventListener('click', function(e) {
     //console.log(e);
-    //console.log(compareSelection(2,getComputerSelection()));
     displayRes(compareSelection(2,getComputerSelection()));
 });
 
+//Display results of each match
 function displayRes(str) {
     const div = document.querySelector('.result');
 
@@ -155,6 +156,7 @@ function displayRes(str) {
     
     updateScore();
 
+    //Once score has reached 5, display winner
     if(playerScore == 5) declareWinner ("You have won! Refresh the page to start a new game, or continue playing for fun.");
     else if(computerScore == 5) declareWinner("The computer has won! Refresh the page to start a new game, or continue playing for fun.");
 
