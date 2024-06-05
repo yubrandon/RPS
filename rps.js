@@ -155,7 +155,7 @@ function displayRes(str) {
     console.log(playerScore);
     
     updateScore();
-
+    //********************* ERROR: MULTIPLE PRINTS ******************************************
     //Once score has reached 5, display winner
     if(playerScore == 5) declareWinner ("You have won! Refresh the page to start a new game, or continue playing for fun.");
     else if(computerScore == 5) declareWinner("The computer has won! Refresh the page to start a new game, or continue playing for fun.");
